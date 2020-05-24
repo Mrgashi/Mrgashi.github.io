@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const tTetromino = [
     [1, width, width + 1, width + 2],
-    [1, width, width + 2, width * 2 + 1],
+    [1, width + 1, width + 2, width * 2 + 1],
     [width, width + 1, width + 2, width * 2 + 1],
     [1, width, width + 1, width * 2 + 1],
   ];
@@ -180,26 +180,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const displayWidth = 4;
   let displayIndex = 0;
 
-  // the Tetrominos without rotations
+  //the Tetrominos without rotations
   const upNextTetrominoes = [
-    [1, displayWidth + 1, displayWidth * 2 + 1, 2], // lTetromino
-    [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1], // zTetromino
-    [1, displayWidth, displayWidth + 1, displayWidth + 2], // tTetromino
-    [0, 1, displayWidth, displayWidth + 1], // oTetromino
-    [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1], // iTetromino
+    [1, displayWidth + 1, displayWidth * 2 + 1, 2], //lTetromino
+    [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1], //zTetromino
+    [1, displayWidth, displayWidth + 1, displayWidth + 2], //tTetromino
+    [0, 1, displayWidth, displayWidth + 1], //oTetromino
+    [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1], //iTetromino
   ];
 
   // display the shape in the mini grid display
 
   function displayShape() {
-    // remove any trace of a tetromino from the entire grid
-    displaySqures.forEach((square) => {
+    //remove any trace of a tetromino form the entire grid
+    displaySquares.forEach((square) => {
       square.classList.remove("tetromino");
       square.style.backgroundColor = "";
     });
     upNextTetrominoes[nextRandom].forEach((index) => {
-      displaySqures[displayIndex + index].classList.add("tetromino");
-      displaySquare[displayIndex + index].style.backgroundColor =
+      displaySquares[displayIndex + index].classList.add("tetromino");
+      displaySquares[displayIndex + index].style.backgroundColor =
         colors[nextRandom];
     });
   }
@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function gameOver() {
     if (
       current.some((index) =>
-        squares[currentPostion + index].classList.contains("taken")
+        squares[currentPosition + index].classList.contains("taken")
       )
     ) {
       scoreDisplay.innerHTML = "end";
